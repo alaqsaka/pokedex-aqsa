@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import PokemonCard from "@/components/pokemon-card";
 
 async function getData() {
   const res = await fetch(
@@ -35,15 +36,15 @@ export default async function Home() {
 
   const pokemons = await getPokemonDetail(results);
 
-  console.log(pokemons);
-
   return (
     <main>
       <Container>
         <p className="text-2xl font-bold">Pokedex</p>
-        {pokemons.map((pokemon) => (
-          <p key={pokemon.name}>{pokemon.name}</p>
-        ))}
+        <div className="grid grid-cols-2 gap-3 mt-5">
+          {pokemons.map((pokemon) => (
+            <PokemonCard key={pokemon.name} data={pokemon} />
+          ))}
+        </div>
       </Container>
     </main>
   );
