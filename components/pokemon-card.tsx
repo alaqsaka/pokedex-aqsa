@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 let pokemonColor: any = {
   normal: "bg-yellow-300",
@@ -27,12 +30,16 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
+  const router = useRouter();
   let pokemonTypes: any = data.types;
 
   let color = pokemonColor[pokemonTypes[0].type.name];
 
   return (
-    <div className={`${color} p-2 rounded-md h-full`}>
+    <div
+      className={`${color} p-2 rounded-md h-full cursor-pointer`}
+      onClick={() => router.push(`/pokemon/${data.id}`)}
+    >
       <div className="flex justify-between h-full">
         <div>
           <p className="capitalize font-semibold mb-3">{data.name}</p>
