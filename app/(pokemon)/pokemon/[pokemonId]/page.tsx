@@ -35,13 +35,28 @@ async function getPokemonDetail(id: number) {
   return res.json();
 }
 
+async function getEvolutionData(id: number) {
+  const res = await fetch(
+    ` https://pokeapi.co/api/v2/evolution-chain/${id}`,
+    {}
+  );
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
   const data = await getPokemonDetail(params.pokemonId);
 
   let pokemonTypes: any = data.types;
-  let color = pokemonColor[data.types[0].type.name];
 
-  console.log(data);
+  const evolutionData = await getEvolutionData(params.pokemonId);
+
+  let color = pokemonColor[data.types[0].type.name];
 
   return (
     <>
@@ -78,7 +93,7 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
         </div>
 
         <div className="bg-white rounded-t-3xl p-2 mt-3">
-          <Detail data={data} />
+          <Detail data={data} evolutionData={evolutionData} />
         </div>
       </div>
     </>

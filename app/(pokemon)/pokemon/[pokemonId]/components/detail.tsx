@@ -8,9 +8,10 @@ import Moves from "./moves";
 
 interface DetailProps {
   data: any;
+  evolutionData: any;
 }
 
-const Detail: React.FC<DetailProps> = ({ data }) => {
+const Detail: React.FC<DetailProps> = ({ data, evolutionData }) => {
   const [selectedTab, setSelectedTab] = useState("about");
   let tabs = ["about", "base stats", "evolution", "moves"];
 
@@ -33,7 +34,9 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
       <div className="mt-9 px-4">
         {selectedTab == "about" && <About data={data} />}
         {selectedTab == "base stats" && <BaseStats data={data} />}
-        {selectedTab == "evolution" && <Evolution />}
+        {selectedTab == "evolution" && (
+          <Evolution evolutionData={evolutionData} data={data} />
+        )}
         {selectedTab == "moves" && <Moves data={data} />}
       </div>
     </div>
