@@ -75,7 +75,7 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
           </div>
         </div>
 
-        <div className="bg-white rounded-t-3xl p-2">
+        <div className="bg-white rounded-t-3xl p-2 mt-3">
           <Detail data={data} />
         </div>
       </div>

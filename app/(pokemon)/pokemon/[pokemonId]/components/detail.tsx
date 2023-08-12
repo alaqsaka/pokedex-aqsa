@@ -25,14 +25,14 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
             }`}
             onClick={() => setSelectedTab(tab)}
           >
-            <p className={`font-bold text-sm capitalize text-center `}>{tab}</p>
+            <p className={`font-bold text-xs capitalize text-center`}>{tab}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-3 px-4">
+      <div className="mt-9 px-4">
         {selectedTab == "about" && <About data={data} />}
-        {selectedTab == "base stats" && <BaseStats />}
+        {selectedTab == "base stats" && <BaseStats data={data} />}
         {selectedTab == "evolution" && <Evolution />}
         {selectedTab == "moves" && <Moves />}
       </div>

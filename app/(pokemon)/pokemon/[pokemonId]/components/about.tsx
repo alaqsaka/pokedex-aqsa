@@ -5,7 +5,6 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ data }) => {
-  console.log("ability", data.abilities);
   return (
     <div>
       <div className="grid grid-cols-2 mt-2">
