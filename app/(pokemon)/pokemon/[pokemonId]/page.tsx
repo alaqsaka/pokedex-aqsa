@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import React from "react";
 import Image from "next/image";
+import Detail from "./components/detail";
 
 let pokemonColor: any = {
   normal: "bg-yellow-300",
@@ -44,7 +45,7 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
 
   return (
     <>
-      <div className={`max-w-md mx-auto`}>
+      <div className={`max-w-md mx-auto ${color}`}>
         <div className={`${color} p-4`}>
           <p className="text-2xl font-bold text-white capitalize">
             {data.name}
@@ -76,8 +77,8 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
           </div>
         </div>
 
-        <div>
-          <div className="bg-white">Detail</div>
+        <div className="bg-white rounded-t-3xl p-2">
+          <Detail />
         </div>
       </div>
     </>

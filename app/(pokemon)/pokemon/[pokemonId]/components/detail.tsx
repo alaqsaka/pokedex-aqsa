@@ -1,0 +1,39 @@
+"use client";
+
+import { useState } from "react";
+import About from "./about";
+import BaseStats from "./base-stats";
+import Evolution from "./evolution";
+import Moves from "./moves";
+
+const Detail = () => {
+  const [selectedTab, setSelectedTab] = useState("about");
+  let tabs = ["about", "base stats", "evolution", "moves"];
+
+  return (
+    <div className="rounded-xl">
+      <div className="flex justify-between px-4">
+        {tabs.map((tab) => (
+          <div
+            key={tab}
+            className={`hover:bg-slate-100 p-3 w-full text-gray-400 cursor-pointer ${
+              selectedTab == tab && "text-black border-b-2 border-b-black"
+            }`}
+            onClick={() => setSelectedTab(tab)}
+          >
+            <p className={`font-bold text-sm capitalize text-center `}>{tab}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-3 px-2">
+        {selectedTab == "about" && <About />}
+        {selectedTab == "base stats" && <BaseStats />}
+        {selectedTab == "evolution" && <Evolution />}
+        {selectedTab == "moves" && <Moves />}
+      </div>
+    </div>
+  );
+};
+
+export default Detail;
