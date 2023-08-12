@@ -3,7 +3,7 @@ import PokemonCard from "@/components/pokemon-card";
 
 async function getData() {
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`,
+    `https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`,
     {
       cache: "no-store",
       next: { revalidate: 0 },
@@ -40,15 +40,13 @@ export default async function Home() {
     <main>
       <Container>
         <p className="text-2xl font-bold">Pokedex</p>
-        <div className="mt-5">
+        <div className="mt-5 overflow-auto h-[90vh]">
           <div className="grid grid-cols-2 gap-3">
             {pokemons.map((pokemon) => (
               <PokemonCard key={pokemon.name} data={pokemon} />
             ))}
           </div>
         </div>
-
-        <div className="mt-5 text-center">Pagination</div>
       </Container>
     </main>
   );
