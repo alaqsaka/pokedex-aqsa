@@ -34,7 +34,7 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
         {selectedTab == "about" && <About data={data} />}
         {selectedTab == "base stats" && <BaseStats data={data} />}
         {selectedTab == "evolution" && <Evolution />}
-        {selectedTab == "moves" && <Moves />}
+        {selectedTab == "moves" && <Moves data={data} />}
       </div>
     </div>
   );
