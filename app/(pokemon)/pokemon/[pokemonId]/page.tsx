@@ -41,8 +41,6 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
   let pokemonTypes: any = data.types;
   let color = pokemonColor[data.types[0].type.name];
 
-  console.log(color);
-
   return (
     <>
       <div className={`max-w-md mx-auto ${color}`}>
@@ -78,7 +76,7 @@ const PokemonPage = async ({ params }: { params: { pokemonId: number } }) => {
         </div>
 
         <div className="bg-white rounded-t-3xl p-2">
-          <Detail />
+          <Detail data={data} />
         </div>
       </div>
     </>

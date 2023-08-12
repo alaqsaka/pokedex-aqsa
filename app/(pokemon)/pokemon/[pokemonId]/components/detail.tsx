@@ -6,7 +6,11 @@ import BaseStats from "./base-stats";
 import Evolution from "./evolution";
 import Moves from "./moves";
 
-const Detail = () => {
+interface DetailProps {
+  data: any;
+}
+
+const Detail: React.FC<DetailProps> = ({ data }) => {
   const [selectedTab, setSelectedTab] = useState("about");
   let tabs = ["about", "base stats", "evolution", "moves"];
 
@@ -26,8 +30,8 @@ const Detail = () => {
         ))}
       </div>
 
-      <div className="mt-3 px-2">
-        {selectedTab == "about" && <About />}
+      <div className="mt-3 px-4">
+        {selectedTab == "about" && <About data={data} />}
         {selectedTab == "base stats" && <BaseStats />}
         {selectedTab == "evolution" && <Evolution />}
         {selectedTab == "moves" && <Moves />}
