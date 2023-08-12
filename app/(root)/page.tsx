@@ -39,6 +39,7 @@ export default async function Home() {
   return (
     <main>
       <Container>
+        <p className="text-2xl font-bold">Pokedex</p>
         <div className="mt-5">
           <div className="grid grid-cols-2 gap-3">
             {pokemons.map((pokemon) => (
