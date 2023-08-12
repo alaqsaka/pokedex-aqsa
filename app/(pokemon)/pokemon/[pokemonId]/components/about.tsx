@@ -14,7 +14,7 @@ const About: React.FC<AboutProps> = ({ data }) => {
       </div>
       <div className="grid grid-cols-2 mt-2">
         <p className="text-gray-300 font-bold">Height</p>
-        <p className="font-bold text-black">{data.height}"</p>
+        <p className="font-bold text-black">{data.height}&quot;</p>
       </div>
       <div className="grid grid-cols-2 mt-2">
         <p className="text-gray-300 font-bold">Weight</p>
