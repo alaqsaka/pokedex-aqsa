@@ -1,16 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import { pokemonColor } from "../lib/colors";
 
 interface PokemonCardProps {
   data: any;
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ data }) => {
-  console.log(data.types);
-  let pokemonTypes = data.types;
+  let pokemonTypes: any = data.types;
+
+  let color = pokemonColor[pokemonTypes[0].type.name];
 
   return (
-    <div className="bg-emerald-100 p-2 rounded-md">
+    <div className={`${color}  p-2 rounded-md`}>
       <div className="flex justify-between">
         <div>
           <p className="capitalize font-semibold mb-3">{data.name}</p>
